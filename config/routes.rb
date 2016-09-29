@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'menu/index'
+  
+  get 'menu/category/:id', controller: :menu, action: :category, as: :menu_category
+
   resources :profiles, only: [:edit, :update]
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
